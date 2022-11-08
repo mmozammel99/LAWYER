@@ -65,11 +65,11 @@ const Login = () => {
                 <h1 className="text-5xl font-bold text-center py-16">Login </h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label for="email" className="block ">Email</label>
+                        <label assName="block ">Email</label>
                         <input type="email" name="email" id="email" placeholder="email" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
                     </div>
                     <div className="space-y-1 text-sm">
-                        <label for="password" className="block ">Password</label>
+                        <label  className="block ">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
                         <div className="flex justify-end text-xs text-gray-600">
                             <Link to="/">Forgot Password?</Link>
