@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 import Banner from './HomeComponent/Banner';
 import ChooseBar from './HomeComponent/ChooseBar';
 import Clients from './HomeComponent/Clients';
@@ -6,6 +7,7 @@ import ContactUs from './HomeComponent/ContactUs';
 import Progress from './HomeComponent/Progress';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div className='px-[5%] my-0 bg-primary'>
             <Banner />

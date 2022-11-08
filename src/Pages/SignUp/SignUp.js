@@ -2,14 +2,19 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
     const { userSignUp, userUpdate, LoginWithPopup } = useContext(AuthContext)
+    useTitle('Sign Up')
     const googleProvider = new GoogleAuthProvider()
+
     const [error, setError] = useState(null)
     const [errorM, setErrorM] = useState(null)
+
     const handleSubmit = event => {
         event.preventDefault();
+
         const form = event.target;
         const name = form.name.value
         const photoURL = form.photoURL.value
