@@ -3,7 +3,7 @@ import img1 from '../../../Assets/banner/banner.webp'
 import img2 from '../../../Assets/banner/banner2.png'
 const Banner = () => {
     return (
-        <div className="carousel w-full pt-5 ">
+        <div className="carousel w-full pt-5 shadow-lg ">
             <div id="slide1" className="hero carousel-item relative w-full " style={{ backgroundImage: `url(${img1})` }}>
                 <div className="hero-overlay bg-opacity-90">
                     <div className="p-20 lg:p-64 text-center text-neutral-content ">

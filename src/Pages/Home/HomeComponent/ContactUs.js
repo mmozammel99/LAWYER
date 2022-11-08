@@ -2,9 +2,9 @@ import React from 'react';
 import img from '../../../Assets/HomepageImg/6864106_28687-ai.png'
 const ContactUs = () => {
     return (
-        <div><div className="space-y-2 text-center">
+        <div><div className="space-y-2 text-center py-10">
             <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Don't hesitate to ask</h2>
-            <div className="">Law is complicate matter. It can cause you a big problem
+            <div className="text-base-300">Law is complicate matter. It can cause you a big problem
                 if you ignore it. Let us help you!</div>
         </div>
             <div className="flex flex-col lg:flex-row justify-around align-middle px-8 py-16 mx-auto rounded-lg lg:px-16 ">

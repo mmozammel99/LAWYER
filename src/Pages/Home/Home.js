@@ -10,13 +10,16 @@ const Home = () => {
             <Banner/>
             <div className=' flex text-2xl lg:text-4xl font-bold justify-center gap-5 my-20'>
                 -
-                <h2 className="  text-black"> Legal Practices Area </h2>
+                <h2 className=" text-base-300"> Legal Practices Area </h2>
                 -
             </div>
 
             <Progress/>
+            <hr />
             <ChooseBar/>
+            <hr />
             <ContactUs/>
+           
         </div>
     );
 };
