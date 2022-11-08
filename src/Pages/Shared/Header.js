@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/logo.png'
 const Header = () => {
-    const { dark, setDark } = useState(false)
+    // const { dark, setDark } = useState(false)
     const handleDark = event => {
         const mod = event.target.checked;
         console.log(mod);
