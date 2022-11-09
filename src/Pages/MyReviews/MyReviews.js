@@ -6,14 +6,23 @@ import NotFoundReviews from './MyReviewsComponents/NotFoundReviews';
 import Swal from 'sweetalert2'
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext)
+    const { user, userLogOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useTitle('My Reviews')
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('geniusToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return userLogOut()
+                }
+                return res.json()
+            })
             .then(data => setReviews(data))
-    }, [user?.email])
+    }, [user?.email, userLogOut])
 
     const handleEdit = async (id) => {
 
@@ -76,7 +85,7 @@ const MyReviews = () => {
                     })
                     .catch(err => console.error(err))
 
-                
+
             }
         })
 

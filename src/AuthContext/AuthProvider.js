@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth,email, password)
     }
     const userLogOut = () => {
+        localStorage.removeItem('geniusToken')
         return signOut(auth)
     }
     const LoginWithPopup = (provider) => {
