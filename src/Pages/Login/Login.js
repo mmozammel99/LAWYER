@@ -15,9 +15,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-
-    const from = location.state?.from?.pathname || "/";
-
+    const from = location.state?.from?.pathname || '/';
 
     const Toast = Swal.mixin({
         toast: true,
@@ -60,12 +58,11 @@ const Login = () => {
                             icon: 'success',
                             title: 'Log In successfully'
                         })
-                        form.reset()
-                        setError(null)
-                        setErrorMsg(null)
+                        
                         navigate(from, { replace: true });
-
                     })
+                    
+
 
 
 
@@ -106,7 +103,7 @@ const Login = () => {
                 <h1 className="text-5xl font-bold text-center py-16">Login </h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
-                        <label assName="block ">Email</label>
+                        <label className="block ">Email</label>
                         <input type="email" name="email" id="email" placeholder="email" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
                     </div>
                     <div className="space-y-1 text-sm">

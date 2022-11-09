@@ -6,16 +6,12 @@ const PrivetRouter = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     if (loading) {
-        return <button className="btn loading mx-auto h-screen w-full">loading</button>
+        return <button className="btn loading mx-auto h-screen w-full bg-primary">loading</button>
     }
-    if (user) {
-        return children
+    if (!user) {
+        return <Navigate to='/login' state={{ from: location }} replace></Navigate>
     }
-    return (
-        <Navigate to='/login' state={{ form: location }} replace>
-
-        </Navigate>
-    );
+    return children;
 };
 
 export default PrivetRouter;

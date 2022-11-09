@@ -31,26 +31,30 @@ const Home = () => {
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6'>
 
 
-                    {services ?
-                        <> {
-                            services.map(service => <ServicesCard
-                                key={service._id}
-                                service={service}></ServicesCard>)
-                        }
-                        </>
-                        :
+                    {(services?.length === 0) ?
                         <> {
                             cards.map(card => <CardLoader
                                 key={card}
                             ></CardLoader>)
                         }
                         </>
+                        :
+                        <> {
+                            services.map(service => <ServicesCard
+                                key={service._id}
+                                service={service}></ServicesCard>)
+                        }
+                        </>
 
 
                     }
                 </div>
-               {services&& <Link className='my-10 flex justify-center' to='/services'>
-                    <button className='btn w-36'>See All</button></Link>}
+                {
+                    (services?.length > 0) &&
+                    <Link className='my-10 flex justify-center' to='/services'>
+                        <button className='btn w-36'>See All</button>
+                    </Link>
+                }
             </div>
             <Progress />
             <hr />
