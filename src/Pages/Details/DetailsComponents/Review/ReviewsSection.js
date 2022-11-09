@@ -9,7 +9,7 @@ const ReviewsSection = ({ cardDetails }) => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceId=${cardDetails?._id}`)
+        fetch(`https://lawyer-sigma.vercel.app/reviews?serviceId=${cardDetails?._id}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [cardDetails?._id])
@@ -24,7 +24,7 @@ const ReviewsSection = ({ cardDetails }) => {
             </div>
             {user?.email ?
                 <AddReview
-                    
+
                     cardDetails={cardDetails}
                     setReviews={setReviews}
                     reviews={reviews}

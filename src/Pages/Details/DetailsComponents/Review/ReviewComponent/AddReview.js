@@ -27,9 +27,9 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
         let newReview = []
 
         const review = { feedback, serviceId: _id, title, email, displayName, photoURL, time };
-       
 
-        fetch('http://localhost:5000/review', {
+
+        fetch('https://lawyer-sigma.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                if(data.acknowledged){
+                if (data.acknowledged) {
                     newReview = [review, ...reviews]
                     setReviews(newReview);
                     Toast.fire({

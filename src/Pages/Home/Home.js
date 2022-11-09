@@ -4,6 +4,7 @@ import useTitle from '../../Hooks/useTitle';
 import CardLoader from '../CardLoader/CardLoader';
 import ServicesCard from '../Services/ServicesCard';
 import Banner from './HomeComponent/Banner';
+import Bio from './HomeComponent/Bio';
 import ChooseBar from './HomeComponent/ChooseBar';
 import Clients from './HomeComponent/Clients';
 import ContactUs from './HomeComponent/ContactUs';
@@ -13,7 +14,7 @@ const Home = () => {
     const [services, setServices] = useState([])
     const cards = [1, 2, 3]
     useEffect(() => {
-        fetch('http://localhost:5000/home')
+        fetch('https://lawyer-sigma.vercel.app/home')
             .then(res => res.json())
             .then(data => setServices(data))
 
@@ -56,6 +57,7 @@ const Home = () => {
                     </Link>
                 }
             </div>
+            <Bio/>
             <Progress />
             <hr />
             <ChooseBar />

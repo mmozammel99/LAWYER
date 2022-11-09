@@ -10,7 +10,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([])
     useTitle('My Reviews')
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews?email=${user?.email}`, {
+        fetch(`https://lawyer-sigma.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('geniusToken')}`
             }
@@ -24,9 +24,9 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [user?.email, userLogOut])
 
-    const handleEdit = async (id) => {
+    const handleEdit = (id) => {
 
-        const { value: text } = await Swal.fire({
+        Swal.fire({
             input: 'textarea',
             inputLabel: 'Feedback Edit',
             inputPlaceholder: 'Type your message here...',
@@ -34,26 +34,30 @@ const MyReviews = () => {
                 'aria-label': 'Type your message here'
             },
             showCancelButton: true
-        })
+        }).then(result => {
+            if (result.isConfirmed) {
+                fetch(`https://lawyer-sigma.vercel.app/my-reviews/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ feedback: result.value })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.matchedCount > 0) {
+                            const remainingReview = reviews.filter(r => r._id !== id)
+                            const editReview = reviews.find(r => r._id === id)
+                            editReview.feedback = result.value;
+                            const newReview = [editReview, ...remainingReview]
+                            setReviews(newReview)
+                        }
+                    })
+                    .catch(err => console.error(err))
+            }
+        }).catch(err => console.error(err))
 
-        fetch(`http://localhost:5000/my-reviews/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ feedback: text })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.matchedCount > 0) {
-                    const remainingReview = reviews.filter(r => r._id !== id)
-                    const editReview = reviews.find(r => r._id === id)
-                    editReview.feedback = text;
-                    const newReview = [editReview, ...remainingReview]
-                    setReviews(newReview)
-                }
-            })
-            .catch(err => console.error(err))
+
     }
     const handleDelete = (id) => {
 
@@ -68,7 +72,7 @@ const MyReviews = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/my-reviews/${id}`, {
+                fetch(`https://lawyer-sigma.vercel.app/my-reviews/${id}`, {
                     method: 'DELETE',
 
                 })

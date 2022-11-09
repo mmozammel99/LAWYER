@@ -47,7 +47,7 @@ const SignUp = () => {
                     email: user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://lawyer-sigma.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

@@ -27,7 +27,7 @@ const AddService = () => {
         const time = new Date()
         // console.log(title, img, details);
         const service = { title, img, price, details, time }
-        fetch('http://localhost:5000/services', {
+        fetch('https://lawyer-sigma.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

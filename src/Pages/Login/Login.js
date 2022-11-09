@@ -42,7 +42,7 @@ const Login = () => {
                     email: user.email
                 }
                 // jwt
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://lawyer-sigma.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -58,10 +58,10 @@ const Login = () => {
                             icon: 'success',
                             title: 'Log In successfully'
                         })
-                        
+
                         navigate(from, { replace: true });
                     })
-                    
+
 
 
 

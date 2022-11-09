@@ -9,7 +9,7 @@ const Services = () => {
     const [services, setServices] = useState([])
     const cards = [1, 2, 3, 4, 5, 6]
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://lawyer-sigma.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
         // setLoading(false)

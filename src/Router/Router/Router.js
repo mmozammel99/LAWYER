@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://lawyer-sigma.vercel.app/services/${params.id}`)
             },
             {
                 path: '/add-service',
