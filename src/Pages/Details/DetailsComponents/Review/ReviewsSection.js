@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../AuthContext/AuthProvider';
-import AddReview from './Review/AddReview';
-import LoginBanner from './Review/LoginBanner';
-import ReviewCard from './Review/ReviewCard';
+import { AuthContext } from '../../../../AuthContext/AuthProvider';
+import AddReview from './ReviewComponent/AddReview';
+import LoginBanner from './ReviewComponent/LoginBanner';
+import ReviewCard from './ReviewComponent/ReviewCard';
 
 const ReviewsSection = ({ cardDetails }) => {
     const { user } = useContext(AuthContext)
@@ -24,6 +24,7 @@ const ReviewsSection = ({ cardDetails }) => {
             </div>
             {user?.email ?
                 <AddReview
+                    
                     cardDetails={cardDetails}
                     setReviews={setReviews}
                     reviews={reviews}

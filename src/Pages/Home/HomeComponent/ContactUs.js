@@ -13,25 +13,25 @@ const ContactUs = () => {
 
                 <form className="space-y-6 lg:w-[40%] py-20">
                     <div>
-                        <label for="name" className="text-sm">Full name</label>
+                        <label htmlFor="name" className="text-sm">Full name</label>
                         <input id="name" type="text" placeholder="" className="w-full p-3 rounded bg-gray-100" />
                     </div>
                     <div>
-                        <label for="email" className="text-sm">Email</label>
+                        <label htmlFor="email" className="text-sm">Email</label>
                         <input id="email" type="email" className="w-full p-3 rounded bg-gray-100" />
                     </div>
                     <div>
-                        <label for="message" className="text-sm">Message</label>
+                        <label htmlFor="message" className="text-sm">Message</label>
                         <textarea id="message" rows="3" className="w-full p-3 rounded bg-gray-100"></textarea>
-                    </div>
-                    <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase btn btn-outline">Send Message</button>
-                </form>
-            </div>
+                    </div >
+    <button type="submit" className="w-full p-3 text-sm font-bold tracking-wide uppercase btn btn-outline">Send Message</button>
+                </form >
+            </div >
            
 
 
            
-        </div>
+        </div >
     );
 };
 

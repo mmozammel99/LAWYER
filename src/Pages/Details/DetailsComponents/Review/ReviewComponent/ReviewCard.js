@@ -6,7 +6,7 @@ const ReviewCard = ({ review, user }) => {
 
 	return (
 		<>
-			<div className="container flex flex-col w-full max-w-5xl shadow-md mt-10 p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+			<div className="container flex flex-col w-full max-w-5xl shadow-sm md:shadow-md mt-10 p-6 mx-auto divide-y md:rounded-md divide-gray-300 bg-gray-50 text-gray-800">
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
 						<div>

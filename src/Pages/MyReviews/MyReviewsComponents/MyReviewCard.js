@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 
-const MyReviewCard = ({ review, handleEdit }) => {
+const MyReviewCard = ({ review, handleEdit,handleDelete }) => {
     const { displayName, photoURL, feedback, email, title, _id } = review;
   
 
@@ -29,9 +29,9 @@ const MyReviewCard = ({ review, handleEdit }) => {
                             <FaEdit className='text-green-600' />
 
                         </button>
-                        <div className='bg-red-100 p-2 h-9 rounded-full'>
+                        <button onClick={() => handleDelete(_id)}  className='bg-red-100 p-2 h-9 rounded-full'>
                             <FaTrashAlt className='text-red-600' />
-                        </div>
+                        </button>
                     </div>
                 </div>
                 <h3 className=' md:hidden text-lg font-bold text-center'>{title}</h3>
