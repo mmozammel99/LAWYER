@@ -4,20 +4,20 @@ import { Link } from 'react-router-dom';
 import logo from '../../Assets/logo.png'
 import { AuthContext } from '../../AuthContext/AuthProvider';
 const Header = () => {
-    const { user, setDark, dark,userLogOut } = useContext(AuthContext)
+    const { user, setDark, dark, userLogOut } = useContext(AuthContext)
     const handleDark = event => {
         const mod = event.target.checked;
         setDark(mod);
     }
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         userLogOut()
-        .then(()=>{})
-        .catch(()=>{})
+            .then(() => { })
+            .catch(() => { })
     }
 
     return (
         <>
-            <div className={`navbar ${dark?"":"bg-primary"} lg:px-[5%]`}>
+            <div className={`navbar ${dark ? "" : "bg-primary"} lg:px-[5%]`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,10 +28,12 @@ const Header = () => {
                             <li><Link to='/'>Services</Link></li>
                             <li><Link to='/'>Blogs</Link></li>
                             {
-                            user?.email && <><li><Link to='/'>My reviews</Link></li>
-                                <li><Link to='/'>Add service</Link></li> 
-                                <button onClick={handleLogOut} className="btn btn-outline">LogOut</button></>
-                        }
+                                user?.email && <>
+                                    <li><Link to='/'>My reviews</Link></li>
+                                    <li><Link to='/'>Add service</Link></li>
+                                    <button onClick={handleLogOut} className="btn btn-outline">LogOut</button>
+                                </>
+                            }
 
                         </ul>
                     </div>
@@ -48,8 +50,9 @@ const Header = () => {
                         <li><Link to='/services'>Services</Link></li>
                         <li><Link to='/blogs'>Blogs</Link></li>
                         {
-                            user?.email && <><li><Link to='/my-reviews'>My reviews</Link></li>
-                                <li><Link to='/add-service'>Add service</Link></li> </>
+                            user?.email && <>
+                            <li><Link to='/my-reviews'>My reviews</Link></li>
+                                 <li><Link to='/add-service'>Add service</Link></li> </>
                         }
 
 
@@ -66,7 +69,7 @@ const Header = () => {
                             <>
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-[2%] relative flex-shrink-0">
                                     <div className="w-10 rounded-full ">
-                                    <span className="absolute bottom-0 right-1 w-3 h-3 bg-green-400 rounded-full"></span>
+                                        <span className="absolute bottom-0 right-1 w-3 h-3 bg-green-400 rounded-full"></span>
                                         <img src={user?.photoURL} alt='' />
                                     </div>
                                 </label>
