@@ -25,7 +25,7 @@ const Login = () => {
 
         userLogin(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 form.reset()
                 setError(null)
                 setErrorM(null)
