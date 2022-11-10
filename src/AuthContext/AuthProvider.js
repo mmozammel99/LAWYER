@@ -8,6 +8,8 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
+
+    // dark mod 
     const [dark, setDark] = useState((JSON.parse(localStorage.getItem('mod')))||false);
 
     localStorage.setItem('mod',(dark))
@@ -16,22 +18,27 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
     const userUpdate = (profile) => {
         setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
+
     const userLogin = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth,email, password)
     }
+
     const userLogOut = () => {
         localStorage.removeItem('geniusToken')
         return signOut(auth)
     }
+
     const LoginWithPopup = (provider) => {
         setLoading(true)
         return signInWithPopup(auth, provider)
     }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
@@ -41,6 +48,7 @@ const AuthProvider = ({ children }) => {
             return unsubscribe()
         }
     }, [])
+
     const authInfo = {
         user,
         dark,
@@ -52,9 +60,8 @@ const AuthProvider = ({ children }) => {
         userLogin,
         userLogOut,
         LoginWithPopup
-
-
     }
+    
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

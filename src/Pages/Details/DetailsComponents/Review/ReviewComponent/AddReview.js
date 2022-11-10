@@ -8,6 +8,7 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
     const { _id, title } = cardDetails;
 
     // sweetalert2
+
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -19,6 +20,7 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     })
+
     const handleSubmit = event => {
 
         event.preventDefault()
@@ -58,16 +60,18 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
         <>
             <div className={`flex flex-col max-w-5xl p-8 shadow md:shadow-md mx-auto md:rounded-xl ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" } `}>
                 <div className="flex flex-col items-center w-full">
+                    
                     <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
+
                     <div className="flex flex-col items-center py-6 space-y-3">
                         <span className="text-center">How was your experience?</span>
                     </div>
+
                     <form onSubmit={handleSubmit} className="flex flex-col w-full">
                         <textarea rows="3" name='feedback' placeholder="Message..." className={`p-4 rounded-md border-2 resize-none ${dark? "text-gray-100":"text-gray-800"} ${dark? "":"bg-gray-50"} `}></textarea>
                         <button type="submit" className="py-4 my-8 font-semibold rounded-md btn btn-outline">Submit feedback</button>
                     </form>
                 </div>
-
             </div>
         </>
     );

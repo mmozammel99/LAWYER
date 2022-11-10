@@ -8,10 +8,13 @@ import Swal from 'sweetalert2'
 const MyReviews = () => {
     const { user, userLogOut, dark } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
-    useTitle('My Reviews')
-
+    const [isLoading, setIsLoading] = useState(false);
+    useTitle("My reviews")
+    
+    // load data 
 
     useEffect(() => {
+        setIsLoading(true);
         fetch(`https://lawyer-sigma.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('geniusToken')}`
@@ -23,10 +26,14 @@ const MyReviews = () => {
                 }
                 return res.json()
             })
-            .then(data => setReviews(data))
+            .then(data => {
+                setReviews(data)
+                setIsLoading(false)
+            })
+
     }, [user?.email, userLogOut])
 
-
+    // edit function with sweetalert2 
 
     const handleEdit = (id) => {
 
@@ -67,6 +74,9 @@ const MyReviews = () => {
 
 
     }
+
+    // delete function with sweetalert2
+
     const handleDelete = (id) => {
 
         Swal.fire({
@@ -104,29 +114,41 @@ const MyReviews = () => {
 
     }
     return (
-        <div className={`w-full pb-10 ${dark?"bg-base-100":"bg-gray-100" } ${!dark?"text-base-100":"text-gray-100" }`} >
-            <div className='text-neutral-content flex text-3xl lg:text-5xl font-bold justify-center gap-5 py-10'>
-                -
-                <h2 > Feedback</h2>
-                -
-            </div>
+        <div className={`w-full pb-10 ${dark ? "bg-base-100" : "bg-gray-100"} ${!dark ? "text-base-100" : "text-gray-100"}`} >
 
-            {(reviews.length === 0) ?
-                <NotFoundReviews></NotFoundReviews>
+
+            {/* loading spinner */}
+            {isLoading ? <button className={`btn loading mx-auto h-screen w-full ${dark ? "" : "bg-primary"}`}>loading</button>
                 :
-                <div>
-                    {
-                        reviews.map(r => <MyReviewCard
-                            key={r._id}
-                            review={r}
-                            handleEdit={handleEdit}
-                            handleDelete={handleDelete}
-                            dark={dark}
-                        ></MyReviewCard>)
-                    }
-                </div>
-            }
+                //main content
+                <>
+                    <div className='text-neutral-content flex text-3xl lg:text-5xl font-bold justify-center gap-5 py-10'>
+                        -
+                        <h2 > Feedback</h2>
+                        -
+                    </div>
 
+                    {(reviews.length === 0) ?
+
+                        // notfound 
+
+                        <NotFoundReviews></NotFoundReviews>
+                        :
+
+                        // my review 
+                        <div>
+                            {
+                                reviews.map(r => <MyReviewCard
+                                    key={r._id}
+                                    review={r}
+                                    handleEdit={handleEdit}
+                                    handleDelete={handleDelete}
+                                    dark={dark}
+                                ></MyReviewCard>)
+                            }
+                        </div>
+                    }
+                </>}
         </div>
     );
 };

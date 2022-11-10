@@ -3,6 +3,7 @@ import { AuthContext } from '../../../AuthContext/AuthProvider';
 
 const Clients = () => {
     const {dark}= useContext(AuthContext)
+    
         return (
             <>
                 <section className={`${dark ? "bg-base-100" : "bg-gray-100"}` }>

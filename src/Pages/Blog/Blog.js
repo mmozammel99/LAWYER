@@ -8,11 +8,12 @@ const Blog = () => {
     useTitle('Blog')
     return (
         <div className= {`w-full pb-10 ${dark?"bg-base-100":"bg-gray-100" }`}>
-            <div className='text-neutral-content flex text-3xl lg:text-5xl lg:text-5xl font-bold justify-center gap-5 py-10'>
+            <div className='text-neutral-content flex text-3xl lg:text-5xl font-bold justify-center gap-5 py-10'>
                 -
                 <h2 > BLOGS</h2>
                 -
             </div>
+
             <article className={`max-w-7xl px-6 my-10 lg:px-16 py-24 mx-auto space-y-16  shadow-md ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
                 <div className="w-full mx-auto space-y-4">
                     <h1 className="text-3xl lg:text-5xl font-bold leading-none">SQL vs NoSQL: Five Main Differences</h1>
@@ -29,6 +30,7 @@ const Blog = () => {
                     </p>
                 </div>
                 <div className={` text-justify ${!dark?"text-base-100":"text-gray-100" }`}>
+
                     <p>There are five practical differences between SQL and NoSQL:
                         <ol>
                             <li>Language</li>
@@ -91,7 +93,9 @@ const Blog = () => {
                         <br />
                         SQL is available to most major platforms, from operating systems to architectures and programming languages. Compatibility varies more widely for NoSQL, and dependencies need to be investigated more carefully.</p>
                 </div>
+
             </article>
+
             <article className={`max-w-7xl px-6 my-10 lg:px-16 py-24 mx-auto space-y-16  shadow-md ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
                 <div className="w-full mx-auto space-y-4">
                     <h1 className="text-3xl lg:text-5xl font-bold leading-none">What Is JWT? How Does It Work? </h1>
@@ -108,6 +112,7 @@ const Blog = () => {
                     </p>
                 </div>
                 <div className={` text-justify ${!dark?"text-base-100":"text-gray-100" }`}>
+
                     <p>What Is JWT?
                         <br />
                         JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
@@ -153,7 +158,9 @@ const Blog = () => {
                         Because of this, the server does not need to keep a database with the information needed to identify the user. For developers, this is great news — the server that issues the JWT and the server that validates it do not have to be the same.
                     </p>
                 </div>
+
             </article>
+
             <article className={`max-w-7xl px-6 my-10 lg:px-16 py-24 mx-auto space-y-16  shadow-md ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
                 <div className="w-full mx-auto space-y-4">
                     <h1 className="text-3xl lg:text-5xl font-bold leading-none">Difference between Node.JS and Javascript </h1>
@@ -170,6 +177,7 @@ const Blog = () => {
                     </p>
                 </div>
                 <div className={` text-justify ${!dark?"text-base-100":"text-gray-100" }`}>
+
                     1. NodeJS :
                     <br />
                     NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development.
@@ -245,9 +253,10 @@ const Blog = () => {
                             </tbody>
                         </table>
                     </div>
-
                 </div>
+
             </article >
+
             <article className={`max-w-7xl px-6 my-10 lg:px-16 py-24 mx-auto space-y-16  shadow-md ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
                 <div className="w-full mx-auto space-y-4">
                     <h1 className="text-3xl lg:text-5xl font-bold leading-none">How does Node JS handle multiple requests at the same time? </h1>
@@ -264,6 +273,7 @@ const Blog = () => {
                     </p>
                 </div>
                 <div className={` text-justify ${!dark?"text-base-100":"text-gray-100" }`}>
+
                     <p>Given a NodeJS application, since Node is single threaded, say if processing involves a Promise.all that takes 8 seconds, does this mean that the client request that comes after this request would need to wait for eight seconds?
                         <br />
                         No. NodeJS event loop is single threaded. The entire server architecture for NodeJS is not single threaded.
@@ -281,6 +291,7 @@ const Blog = () => {
                         How is NodeJS better than traditional multithreaded request response model?
                         With traditional multithreaded request/response model, every client gets a different thread where as with NodeJS, the simpler request are all handled directly by the EventLoop. This is an optimization of thread pool resources and there is no overhead of creating the threads for every client request. </p>
                 </div>
+                
             </article>
 
         </div >

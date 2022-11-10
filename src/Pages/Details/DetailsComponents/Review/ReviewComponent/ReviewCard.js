@@ -1,8 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
 const ReviewCard = ({ review, user, dark }) => {
-	const { displayName, photoURL, feedback, email } = review;
+	const { displayName, photoURL, feedback, email, time } = review;
 
+	// moment js not work properly or not set properly 
+	const reviewTime = moment(time).startOf('hour').fromNow();
 
 	return (
 		<>
@@ -10,7 +13,8 @@ const ReviewCard = ({ review, user, dark }) => {
 				<div className="flex justify-between p-4">
 					<div className="flex space-x-4">
 						<div>
-
+							{/* profile pic  */}
+							
 							{
 								(user?.email === email) ?
 									<label tabIndex={0} className=" relative flex-shrink-0">
@@ -30,6 +34,7 @@ const ReviewCard = ({ review, user, dark }) => {
 
 						</div>
 					</div>
+					<h4 className="font-bold text-sm text-gray-400">{reviewTime}</h4>
 				</div>
 				<div className="p-4 space-y-2 text-sm ">
 					<p>{feedback}</p>

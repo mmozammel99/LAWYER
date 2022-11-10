@@ -6,14 +6,16 @@ import useTitle from '../../Hooks/useTitle';
 import Swal from 'sweetalert2'
 
 const SignUp = () => {
-    const { userSignUp, userUpdate, LoginWithPopup,dark } = useContext(AuthContext)
+    const { userSignUp, userUpdate, LoginWithPopup, dark } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider()
-    
+
     const [error, setError] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
-    
+
     useTitle('Sign Up')
+
+    // sweetalert2
 
     const Toast = Swal.mixin({
         toast: true,
@@ -37,13 +39,18 @@ const SignUp = () => {
         const password = form.password.value
         const profile = { displayName: name, photoURL: photoURL }
         // console.log(email, password, name, photoURL);
+
+        // singup with email
+
         userSignUp(email, password)
             .then(result => {
                 userUpdate(profile)
                     .then(() => { })
                     .catch(() => { })
                 // console.log(result.user)
+
                 // jwt
+
                 const user = (result.user);
                 const currentUser = {
                     email: user.email
@@ -58,11 +65,13 @@ const SignUp = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
+
                         localStorage.setItem('geniusToken', data.token)
                         Toast.fire({
                             icon: 'success',
                             title: 'Sign Up successfully'
                         })
+
                         setError(null)
                         setErrorMsg(null)
                         form.reset()
@@ -78,9 +87,13 @@ const SignUp = () => {
 
             })
     }
+
+    // singup with google 
+
     const handleGoogle = () => {
         LoginWithPopup(googleProvider)
             .then(result => {
+
                 Toast.fire({
                     icon: 'success',
                     title: 'Log In successfully'
@@ -99,31 +112,41 @@ const SignUp = () => {
             })
     }
     return (
-        <div className={`w-full  lg:h-screen py-5 lg:py-8 ${dark?"bg-base-100":"bg-gray-100" }  `}>
+        <div className={`w-full  lg:h-screen py-5 lg:py-8 ${dark ? "bg-base-100" : "bg-gray-100"}  `}>
             <div className={`w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto lg:shadow-2xl ${dark ? "bg-base-200  " : "bg-primary"}`}>
+
                 <h1 className="text-5xl font-bold text-center py-8">SignUp</h1>
+
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
+
                     <div className="space-y-1 text-sm">
                         <label htmlFor="name" className="block ">Name</label>
                         <input type="text" name="name" id="name" placeholder="name" className="w-full px-4 py-3 rounded-md bg-primary border-2 " required />
                     </div>
+
                     <div className="space-y-1 text-sm">
                         <label htmlFor="Photo URL" className="block ">Photo URL</label>
                         <input type="url" name="photoURL" id="Photo URL" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
                     </div>
+
                     <div className="space-y-1 text-sm">
                         <label htmlFor="email" className="block ">Email</label>
                         <input type="email" name="email" id="email" placeholder="email" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
                     </div>
+
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block ">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
 
                     </div>
+
                     <small className='text-error-content'>{error}<br />
                         {errorMsg}</small>
-                    <button type='submit' className={`block w-full p-3 text-center btn ${dark?"btn-outline":""}`}>Sign Up</button>
+
+                    <button type='submit' className={`block w-full p-3 text-center btn ${dark ? "btn-outline" : ""}`}>Sign Up</button>
+
                 </form>
+
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
                     <p className="px-3 text-sm text-gray-400">SignUp with social accounts</p>
@@ -137,10 +160,13 @@ const SignUp = () => {
                     </button>
 
                 </div>
+
                 <p className="text-xs text-center sm:px-6 text-gray-400">Do have an account?
                     <Link to="/login" className="underline mx-2 text-gray-500">Log In</Link>
                 </p>
+
             </div>
+
         </div>
     );
 };

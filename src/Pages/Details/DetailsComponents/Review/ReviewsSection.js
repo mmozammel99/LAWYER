@@ -5,9 +5,9 @@ import LoginBanner from './ReviewComponent/LoginBanner';
 import ReviewCard from './ReviewComponent/ReviewCard';
 
 const ReviewsSection = ({ cardDetails }) => {
-    const { user,dark } = useContext(AuthContext)
+    const { user, dark } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
-
+    // Feedback lode
     useEffect(() => {
         fetch(`https://lawyer-sigma.vercel.app/reviews?serviceId=${cardDetails?._id}`)
             .then(res => res.json())
@@ -16,13 +16,19 @@ const ReviewsSection = ({ cardDetails }) => {
     // console.log(reviews);
 
     return (
-        <div className={`w-full  pb-10 ${dark?"bg-base-100":"bg-gray-100" }`} >
+        <div className={`w-full  pb-10 ${dark ? "bg-base-100" : "bg-gray-100"}`} >
             <div className='text-neutral-content flex text-2xl lg:text-5xl font-bold justify-center gap-5 py-10'>
                 -
                 <h2 > Feedback</h2>
                 -
             </div>
+            {/* main content */}
+
+
             {user?.email ?
+
+                //   AddReview
+
                 <AddReview
 
                     cardDetails={cardDetails}
@@ -30,8 +36,14 @@ const ReviewsSection = ({ cardDetails }) => {
                     reviews={reviews}
                 ></AddReview>
                 :
+
+                // LoginBanner
+
                 <LoginBanner></LoginBanner>
             }
+
+            {/* ReviewCard */}
+
             {
                 reviews.map(r => <ReviewCard
                     key={r._id}

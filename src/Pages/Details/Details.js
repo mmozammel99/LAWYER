@@ -7,10 +7,15 @@ import CardReviews from './DetailsComponents/Review/ReviewsSection';
 
 const Details = () => {
     const cardDetails = useLoaderData()
+
     useTitle('Service Details')
+
     return (
         <div>
+            {/* CardDetails  */}
             <CardDetails cardDetails={cardDetails}></CardDetails>
+            
+            {/* CardDetails */}
             <CardReviews cardDetails={cardDetails}></CardReviews>
         </div>
     );

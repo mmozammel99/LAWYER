@@ -1,6 +1,6 @@
 # LAWYER
 
-This project was Tailwind DaisyUI with [Create React App](https://github.com/facebook/create-react-app).
+This project was Tailwind DaisyUI and Mamba UI with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
 
@@ -15,7 +15,7 @@ Robert is an authority in criminal defense and professional licensing defense. F
 - It's basically a 6-page application.
 - It uses dynamic API.
 - This site is programmed using Javascript React.
-- This site is Designed using Tailwind CSS with daisyUI.
+- This site is Designed using Tailwind CSS with daisyUI and Mamba UI.
 - React Router is used to route it.
 - It uses react-photo-view .
 - 4 blogs have been added to the blog page
@@ -28,6 +28,7 @@ Robert is an authority in criminal defense and professional licensing defense. F
 - Node Express use for create Server Site.
 - Added sweetalert2 for make interacting.
 - Its have vary useFull Dark mode.
+* Moment use for see review time
 
 # Live Link
 
@@ -51,7 +52,7 @@ You may also see any lint errors in the console.
 
 ### Framework used
 
-Java Script React + Tailwind css with daisyUI + Google Firebase + Node Express + vercel
+Java Script React + Tailwind css with and Mamba UI + Google Firebase + Node Express + vercel
 
 ### Code Type
 
@@ -79,6 +80,7 @@ version: 0.1.0
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.11.0
+    "moment"
 
 ### Server api
 

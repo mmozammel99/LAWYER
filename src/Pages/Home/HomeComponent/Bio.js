@@ -2,11 +2,12 @@ import React from 'react';
 import img from '../../../Assets/HomepageImg/hp2-man-1.png'
 import img2 from '../../../Assets/HomepageImg/signature2.png'
 import img3 from '../../../Assets/HomepageImg/top-view-frame-with-contract-wooden-judge-gavel-min.jpg'
+
 const Bio = () => {
     return (
         <>
             <div className="bg-primary text-gray-800 w-auto  lg:mx-24" style={{ backgroundImage: `url(${img3})` }}>
-                <div className="container flex flex-col justify-center mx-0 mx-auto lg:flex-row lg:justify-around bg-black w-full bg-opacity-60" >
+                <div className="container flex flex-col justify-center  mx-auto lg:flex-row lg:justify-around bg-black w-full bg-opacity-60" >
                     <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left text-white">
                         <h1 className="text-4xl font-bold leading-none md:text-5xl">John B. Smith:
                         </h1>
