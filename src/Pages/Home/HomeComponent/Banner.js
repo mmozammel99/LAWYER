@@ -13,7 +13,7 @@ const Banner = () => {
                             <h2 className=" text-3 text-xl lg:text-2xl  font-bold">STRATEGY. EXPERIENCE. RESULTS.</h2>
                             <h2 className="mb-1 lg:mb-3 text-3 text-4xl lg:text-5xl text-white font-bold">Calgary Criminal Defence Lawyers</h2>
                             <h2 className="mb-6 lg:mb-16 lg:text-xl text-white ">Trust your future to the #1 Google-reviewed criminal
-                                defence law firm in Calgary.</h2>
+                                defence lawyer in Calgary.</h2>
                             <button className="btn btn-outline ">Get a Free Consultation</button>
                         </div>
                     </div>

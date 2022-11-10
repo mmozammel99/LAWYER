@@ -6,12 +6,14 @@ import useTitle from '../../Hooks/useTitle';
 import Swal from 'sweetalert2'
 
 const SignUp = () => {
-    const { userSignUp, userUpdate, LoginWithPopup } = useContext(AuthContext)
-    useTitle('Sign Up')
-    const googleProvider = new GoogleAuthProvider()
+    const { userSignUp, userUpdate, LoginWithPopup,dark } = useContext(AuthContext)
 
+    const googleProvider = new GoogleAuthProvider()
+    
     const [error, setError] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
+    
+    useTitle('Sign Up')
 
     const Toast = Swal.mixin({
         toast: true,
@@ -97,8 +99,8 @@ const SignUp = () => {
             })
     }
     return (
-        <div className='w-full  lg:h-screen bg-primary py-5 lg:py-8'>
-            <div className="w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto  bg-primary lg:shadow-2xl">
+        <div className={`w-full  lg:h-screen py-5 lg:py-8 ${dark?"bg-base-100":"bg-gray-100" }  `}>
+            <div className={`w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto lg:shadow-2xl ${dark ? "bg-base-200  " : "bg-primary"}`}>
                 <h1 className="text-5xl font-bold text-center py-8">SignUp</h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
@@ -120,11 +122,11 @@ const SignUp = () => {
                     </div>
                     <small className='text-error-content'>{error}<br />
                         {errorMsg}</small>
-                    <button type='submit' className="block w-full p-3 text-center btn  ">Sign Up</button>
+                    <button type='submit' className={`block w-full p-3 text-center btn ${dark?"btn-outline":""}`}>Sign Up</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-                    <p className="px-3 text-sm text-gray-600">SignUp with social accounts</p>
+                    <p className="px-3 text-sm text-gray-400">SignUp with social accounts</p>
                     <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
                 </div>
                 <div className="flex justify-center space-x-4">
@@ -135,8 +137,8 @@ const SignUp = () => {
                     </button>
 
                 </div>
-                <p className="text-xs text-center sm:px-6 text-gray-600">Do have an account?
-                    <Link to="/login" className="underline mx-2 text-gray-800">Log In</Link>
+                <p className="text-xs text-center sm:px-6 text-gray-400">Do have an account?
+                    <Link to="/login" className="underline mx-2 text-gray-500">Log In</Link>
                 </p>
             </div>
         </div>

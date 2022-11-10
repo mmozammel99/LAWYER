@@ -6,10 +6,9 @@ import useTitle from '../../Hooks/useTitle';
 import Swal from 'sweetalert2'
 
 const Login = () => {
-    const { userLogin, LoginWithPopup } = useContext(AuthContext)
-    useTitle('Login')
+    const { userLogin, LoginWithPopup,dark } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
-
+    
     const [error, setError] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
 
@@ -17,6 +16,8 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    useTitle('Login')
+    // sweetalert2
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -52,19 +53,12 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         localStorage.setItem('geniusToken', data.token)
-
-
                         Toast.fire({
                             icon: 'success',
                             title: 'Log In successfully'
                         })
-
                         navigate(from, { replace: true });
                     })
-
-
-
-
 
             })
             .catch(err => {
@@ -73,10 +67,11 @@ const Login = () => {
 
                 setError(error)
                 setErrorMsg(errorMsg)
-                // console.error(err);
+               
 
             })
     }
+
     const handleGoogle = () => {
         LoginWithPopup(googleProvider)
             .then(result => {
@@ -84,8 +79,7 @@ const Login = () => {
                     icon: 'success',
                     title: 'Log In successfully'
                 })
-                // console.log(result.user);
-
+               ;
             })
             .catch(err => {
                 const errorMsg = (err.message).split(':').pop().split('(')[0];
@@ -93,13 +87,13 @@ const Login = () => {
 
                 setError(error)
                 setErrorMsg(errorMsg)
-                // console.error(err);
+               
 
             })
     }
     return (
-        <div className='w-full  lg:h-screen bg-primary py-5 lg:py-20'>
-            <div className="w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto  bg-primary lg:shadow-2xl">
+        <div className={`w-full  lg:h-screen py-5 lg:py-20 ${dark?"bg-base-100":"bg-gray-100" }  `}>
+            <div className={`w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto lg:shadow-2xl ${dark ? "bg-base-200  " : "bg-primary"}`}>
                 <h1 className="text-5xl font-bold text-center py-16">Login </h1>
                 <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
@@ -109,17 +103,17 @@ const Login = () => {
                     <div className="space-y-1 text-sm">
                         <label className="block ">Password</label>
                         <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md bg-primary border-2" required />
-                        <div className="flex justify-end text-xs text-gray-600">
+                        <div className="flex justify-end text-xs text-gray-400">
                             <Link to="/">Forgot Password?</Link>
                         </div>
                     </div>
                     <small className='text-error-content'>{error}<br />
                         {errorMsg}</small>
-                    <button type='submit' className="block w-full p-3 text-center btn  ">Log In</button>
+                    <button type='submit' className={`block w-full p-3 text-center btn ${dark?"btn-outline":""}`}>Log In</button>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">
                     <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-                    <p className="px-3 text-sm text-gray-600">Login with social accounts</p>
+                    <p className="px-3 text-sm text-gray-400">Login with social accounts</p>
                     <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
                 </div>
                 <div className="flex justify-center space-x-4">
@@ -130,8 +124,8 @@ const Login = () => {
                     </button>
 
                 </div>
-                <p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
-                    <Link to="/signup" className="underline mx-2 text-gray-800">Sign up</Link>
+                <p className="text-xs text-center sm:px-6 text-gray-400">Don't have an account?
+                    <Link to="/signup" className="underline mx-2 text-gray-500">Sign up</Link>
                 </p>
             </div>
         </div>

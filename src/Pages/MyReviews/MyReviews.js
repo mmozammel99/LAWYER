@@ -6,9 +6,11 @@ import NotFoundReviews from './MyReviewsComponents/NotFoundReviews';
 import Swal from 'sweetalert2'
 
 const MyReviews = () => {
-    const { user, userLogOut } = useContext(AuthContext)
+    const { user, userLogOut, dark } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useTitle('My Reviews')
+
+
     useEffect(() => {
         fetch(`https://lawyer-sigma.vercel.app/my-reviews?email=${user?.email}`, {
             headers: {
@@ -24,6 +26,8 @@ const MyReviews = () => {
             .then(data => setReviews(data))
     }, [user?.email, userLogOut])
 
+
+
     const handleEdit = (id) => {
 
         Swal.fire({
@@ -34,28 +38,32 @@ const MyReviews = () => {
                 'aria-label': 'Type your message here'
             },
             showCancelButton: true
-        }).then(result => {
-            if (result.isConfirmed) {
-                fetch(`https://lawyer-sigma.vercel.app/my-reviews/${id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify({ feedback: result.value })
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.matchedCount > 0) {
-                            const remainingReview = reviews.filter(r => r._id !== id)
-                            const editReview = reviews.find(r => r._id === id)
-                            editReview.feedback = result.value;
-                            const newReview = [editReview, ...remainingReview]
-                            setReviews(newReview)
-                        }
+        })
+            .then(result => {
+
+                if (result.isConfirmed) {
+                    fetch(`https://lawyer-sigma.vercel.app/my-reviews/${id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({ feedback: result.value })
+
                     })
-                    .catch(err => console.error(err))
-            }
-        }).catch(err => console.error(err))
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.matchedCount > 0) {
+                                const remainingReview = reviews.filter(r => r._id !== id)
+                                const editReview = reviews.find(r => r._id === id)
+                                editReview.feedback = result.value;
+                                const newReview = [editReview, ...remainingReview]
+                                setReviews(newReview)
+                            }
+                        })
+                        .catch(err => console.error(err))
+                }
+            })
+            .catch(err => console.error(err))
 
 
     }
@@ -96,14 +104,14 @@ const MyReviews = () => {
 
     }
     return (
-        <div className='w-full bg-gray-100 text-gray-800 pb-10  '>
+        <div className={`w-full pb-10 ${dark?"bg-base-100":"bg-gray-100" } ${!dark?"text-base-100":"text-gray-100" }`} >
             <div className='text-neutral-content flex text-3xl lg:text-5xl font-bold justify-center gap-5 py-10'>
                 -
                 <h2 > Feedback</h2>
                 -
             </div>
 
-            {!reviews ?
+            {(reviews.length === 0) ?
                 <NotFoundReviews></NotFoundReviews>
                 :
                 <div>
@@ -113,6 +121,7 @@ const MyReviews = () => {
                             review={r}
                             handleEdit={handleEdit}
                             handleDelete={handleDelete}
+                            dark={dark}
                         ></MyReviewCard>)
                     }
                 </div>

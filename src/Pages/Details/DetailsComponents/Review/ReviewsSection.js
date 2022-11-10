@@ -5,7 +5,7 @@ import LoginBanner from './ReviewComponent/LoginBanner';
 import ReviewCard from './ReviewComponent/ReviewCard';
 
 const ReviewsSection = ({ cardDetails }) => {
-    const { user } = useContext(AuthContext)
+    const { user,dark } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const ReviewsSection = ({ cardDetails }) => {
     // console.log(reviews);
 
     return (
-        <div className='w-full bg-gray-100 text-gray-800 pb-10 '>
+        <div className={`w-full  pb-10 ${dark?"bg-base-100":"bg-gray-100" }`} >
             <div className='text-neutral-content flex text-2xl lg:text-5xl font-bold justify-center gap-5 py-10'>
                 -
                 <h2 > Feedback</h2>
@@ -37,6 +37,7 @@ const ReviewsSection = ({ cardDetails }) => {
                     key={r._id}
                     review={r}
                     user={user}
+                    dark={dark}
                 ></ReviewCard>)
             }
 

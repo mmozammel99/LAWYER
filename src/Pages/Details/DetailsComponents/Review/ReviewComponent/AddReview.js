@@ -2,23 +2,24 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../../../AuthContext/AuthProvider';
 import Swal from 'sweetalert2'
 const AddReview = ({ cardDetails, setReviews, reviews }) => {
-    const { user } = useContext(AuthContext)
-    const { email, displayName, photoURL } = user;
+    const { user,dark } = useContext(AuthContext)
 
+    const { email, displayName, photoURL } = user;
     const { _id, title } = cardDetails;
 
+    // sweetalert2
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
     const handleSubmit = event => {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
 
         event.preventDefault()
         const form = event.target
@@ -55,14 +56,14 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
     }
     return (
         <>
-            <div className="flex flex-col max-w-5xl p-8 shadow md:shadow-md mx-auto md:rounded-xl lg:p-12 bg-gray-50 text-gray-800">
+            <div className={`flex flex-col max-w-5xl p-8 shadow md:shadow-md mx-auto md:rounded-xl ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" } `}>
                 <div className="flex flex-col items-center w-full">
                     <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
                     <div className="flex flex-col items-center py-6 space-y-3">
                         <span className="text-center">How was your experience?</span>
                     </div>
                     <form onSubmit={handleSubmit} className="flex flex-col w-full">
-                        <textarea rows="3" name='feedback' placeholder="Message..." className="p-4 rounded-md border-2 resize-none text-gray-800 bg-gray-50"></textarea>
+                        <textarea rows="3" name='feedback' placeholder="Message..." className={`p-4 rounded-md border-2 resize-none ${dark? "text-gray-100":"text-gray-800"} ${dark? "":"bg-gray-50"} `}></textarea>
                         <button type="submit" className="py-4 my-8 font-semibold rounded-md btn btn-outline">Submit feedback</button>
                     </form>
                 </div>

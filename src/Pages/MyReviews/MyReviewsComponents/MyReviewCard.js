@@ -2,13 +2,13 @@ import React from 'react';
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 
-const MyReviewCard = ({ review, handleEdit,handleDelete }) => {
+const MyReviewCard = ({ review, handleEdit,handleDelete,dark }) => {
     const { displayName, photoURL, feedback, email, title, _id } = review;
   
 
     return (
         <>
-            <div className="container flex flex-col w-full max-w-5xl shadow-md mt-10 p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+            <div className={`container flex flex-col w-full max-w-5xl shadow-md mt-10 p-6 mx-auto divide-y rounded-md divide-gray-300  ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`} >
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <label tabIndex={0} className=" relative flex-shrink-0">
@@ -19,7 +19,7 @@ const MyReviewCard = ({ review, handleEdit,handleDelete }) => {
                         </label>
                         <div>
                             <h4 className="font-bold">{displayName}</h4>
-                            <span className="text-xs text-gray-600">{email}</span>
+                            <span className="text-xs text-gray-400">{email}</span>
 
                         </div>
                     </div>
@@ -35,7 +35,7 @@ const MyReviewCard = ({ review, handleEdit,handleDelete }) => {
                     </div>
                 </div>
                 <h3 className=' md:hidden text-lg font-bold text-center'>{title}</h3>
-                <div className="p-4 space-y-2 text-sm text-gray-600">
+                <div className="p-4 space-y-2 text-sm ">
                     <p>{feedback}</p>
                 </div>
             </div>

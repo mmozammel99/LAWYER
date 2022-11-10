@@ -8,9 +8,10 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
-    const [dark, setDark] = useState(localStorage.getItem('mod'))
+    const [dark, setDark] = useState((JSON.parse(localStorage.getItem('mod')))||false);
 
-    localStorage.setItem('mod', dark)
+    localStorage.setItem('mod',(dark))
+    
     const userSignUp = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
