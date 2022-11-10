@@ -6,7 +6,7 @@ const LoginBanner = () => {
     const {dark}= useContext(AuthContext)
     return (
         <div>
-            <section className={`py-6 bg-primary max-w-5xl shadow md:shadow-md mx-auto ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
+            <section className={`py-6 max-w-5xl shadow md:shadow-md mx-auto ${dark ? "bg-base-200  " : "bg-primary"} ${!dark?"text-base-100":"text-gray-100" }`}>
                 <div className="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 md:px-24 xl:px-48">
                     <h1 className="text-4xl font-bold leading-none text-center">Please login to add a Feedback</h1>
                    

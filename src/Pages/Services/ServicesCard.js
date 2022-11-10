@@ -9,7 +9,7 @@ const ServicesCard = ({ service }) => {
     const {_id ,img, title, details, price } = service;
     return (
         <>
-            <div className={`card w-96 bg-primary shadow-xl ${dark ? "bg-base-200  " : "bg-primary"}`}>
+            <div className={`card w-96 shadow-xl ${dark ? "bg-base-200  " : "bg-primary"}`}>
                 <figure>
                     <PhotoProvider>
                         <PhotoView src={img}>

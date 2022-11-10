@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# LAWYER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was Tailwind DaisyUI with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+LAWYER is a personal website for lawyer John B. Someone.
+STRATEGY. EXPERIENCE. RESULTS.
+Calgary Criminal Defence Lawyers
+Trust your future to the #1 Google-reviewed criminal defence lawyer in Calgary.
+Highly skilled former prosecutor and trial lawyer that has successfully handled more than 5,000 cases and over 100 jury trials.
+Robert is an authority in criminal defense and professional licensing defense. Fluent in spanish, italian, hebrew, portuguese.
 
-### `npm start`
+- It's totally responsive web application.
+- It's basically a 6-page application.
+- It uses dynamic API.
+- This site is programmed using Javascript React.
+- This site is Designed using Tailwind CSS with daisyUI.
+- React Router is used to route it.
+- It uses react-photo-view .
+- 4 blogs have been added to the blog page
+- its use Google Firebase Authentications.
+- its use dotenv for secure Authentications,mongodb and jtw data ,
+- its use jtw ,
+- its use mongodb for save data ,
+- This site hosting on Google Firebase.
+- Server deploy on Vercel.
+- Node Express use for create Server Site.
+- Added sweetalert2 for make interacting.
+- Its have vary useFull Dark mode.
+
+# Live Link
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [https://lowyer-17fd9.web.app/](https://lowyer-17fd9.web.app/) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Repo Link
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-mmozammel99](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-mmozammel99)
 
-### `npm run build`
+## Server Live Link
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[https://lawyer-sigma.vercel.app/services](https://lawyer-sigma.vercel.app/services)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Server Repo Link
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[ https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-mmozammel99](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-mmozammel99)
 
-### `npm run eject`
+### Framework used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Java Script React + Tailwind css with daisyUI + Google Firebase + Node Express + vercel
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Code Type
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The codes are made very simple and easy for Humans to understand
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## packages list
 
-## Learn More
+version: 0.1.0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "daisyui": "^2.38.1",
+    "firebase": "^9.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-photo-view": "^1.2.2",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "sweetalert2": "^11.6.7",
+    "web-vitals": "^2.1.4"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.11.0
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Server api
 
-### Code Splitting
+Get all services topics:https://lawyer-sigma.vercel.app/services
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Get service details by services id: https://lawyer-sigma.vercel.app/services/${id}
 
-### Analyzing the Bundle Size
+Example: https://lawyer-sigma.vercel.app/services/1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Credits
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks, Programming hero hold team for guiding us
