@@ -103,7 +103,7 @@ const Login = () => {
     }
 
     return (
-        <div className={`w-full  lg:h-screen py-5 lg:py-20 ${dark ? "bg-base-100" : "bg-gray-100"}  `}>
+        <div className={`w-full py-5 lg:py-20 ${dark ? "bg-base-100" : "bg-gray-100"}  `}>
             <div className={`w-full max-w-lg p-8 space-y-3 rounded-xl mx-auto lg:shadow-2xl ${dark ? "bg-base-200" : "bg-primary"}`}>
 
                 <h1 className="text-5xl font-bold text-center py-16">Login </h1>

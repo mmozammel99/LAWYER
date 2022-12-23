@@ -9,6 +9,7 @@ import Bio from './HomeComponent/Bio';
 import ChooseBar from './HomeComponent/ChooseBar';
 import Clients from './HomeComponent/Clients';
 import ContactUs from './HomeComponent/ContactUs';
+import Feedback from './HomeComponent/Feedback';
 import Progress from './HomeComponent/Progress';
 
 const Home = () => {
@@ -84,20 +85,22 @@ const Home = () => {
             {/* Progress */}
 
             <Progress />
-            <hr />
+
 
             {/* why ChooseBar me banner  */}
 
             <ChooseBar />
-            <hr />
 
+            <Clients />
+
+            <Feedback />
             {/* ContactUs */}
 
             <ContactUs />
 
             {/* Clients */}
 
-            <Clients />
+           
 
         </div>
     );

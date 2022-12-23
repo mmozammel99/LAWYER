@@ -4,6 +4,7 @@ import Details from "../../Pages/Details/Details";
 import Error from "../../Pages/Error/Error";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyAppointment from "../../Pages/MyAppointment/MyAppointment";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Services from "../../Pages/Services/Services";
 import SignUp from "../../Pages/SignUp/SignUp";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: '/my-reviews',
                 element: <PrivetRouter><MyReviews></MyReviews></PrivetRouter>
+            },
+            {
+                path: '/my-appointment',
+                element: <PrivetRouter><MyAppointment></MyAppointment></PrivetRouter>
             },
             {
                 path: '/login',

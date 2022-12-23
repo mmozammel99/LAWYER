@@ -4,12 +4,7 @@ This project was Tailwind DaisyUI and Mamba UI with [Create React App](https://g
 
 ## Description
 
-LAWYER is a personal website for lawyer John B. Someone.
-STRATEGY. EXPERIENCE. RESULTS.
-Calgary Criminal Defence Lawyers
-Trust your future to the #1 Google-reviewed criminal defence lawyer in Calgary.
-Highly skilled former prosecutor and trial lawyer that has successfully handled more than 5,000 cases and over 100 jury trials.
-Robert is an authority in criminal defense and professional licensing defense. Fluent in spanish, italian, hebrew, portuguese.
+It is an online based law firm website. It has the facility to provide any law-related services. it has a real-time feedback option in the service section and adds and delete service option if the admin wants. It implements a MongoDB database to store data and uses Tailwind CSS-based daisyUI components for the design. Its have a very useful Dark mode. It uses google firebase authentication and JWT token for security.
 
 - It's totally responsive web application.
 - It's basically a 6-page application.
@@ -40,7 +35,7 @@ You may also see any lint errors in the console.
 
 ## Repo Link
 
-[https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-mmozammel99](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-mmozammel99)
+[https://github.com/mozammel787/LAWYER](https://github.com/mozammel787/LAWYER)
 
 ## Server Live Link
 
@@ -48,7 +43,7 @@ You may also see any lint errors in the console.
 
 ## Server Repo Link
 
-[ https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-mmozammel99](https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-mmozammel99)
+[ https://github.com/mozammel787/LAWYER-server](https://github.com/mozammel787/LAWYER-server)
 
 ### Framework used
 

@@ -35,6 +35,7 @@ const Header = () => {
 
                             {
                                 user?.email && <>
+                                    <li><Link to='/my-appointment'>My appointment</Link></li>
                                     <li><Link to='/my-reviews'>My reviews</Link></li>
                                     <li><Link to='/add-service'>Add service</Link></li>
                                     <button onClick={handleLogOut} className="btn btn-outline">LogOut</button>
@@ -61,6 +62,7 @@ const Header = () => {
 
                         {
                             user?.email && <>
+                            <li><Link to='/my-appointment'>My appointment</Link></li>
                                 <li><Link to='/my-reviews'>My reviews</Link></li>
                                 <li><Link to='/add-service'>Add service</Link></li> </>
                         }

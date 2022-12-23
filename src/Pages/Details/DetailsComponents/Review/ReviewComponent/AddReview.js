@@ -68,7 +68,7 @@ const AddReview = ({ cardDetails, setReviews, reviews }) => {
                     </div>
 
                     <form onSubmit={handleSubmit} className="flex flex-col w-full">
-                        <textarea rows="3" name='feedback' placeholder="Message..." className={`p-4 rounded-md border-2 resize-none ${dark? "text-gray-100":"text-gray-800"} ${dark? "":"bg-gray-50"} `}></textarea>
+                        <textarea rows="3" name='feedback' placeholder="your feedback..." className={`p-4 rounded-md border-2 resize-none ${dark? "text-gray-100":"text-gray-800"} ${dark? "":"bg-gray-50"} `}></textarea>
                         <button type="submit" className="py-4 my-8 font-semibold rounded-md btn btn-outline">Submit feedback</button>
                     </form>
                 </div>
