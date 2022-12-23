@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import Swal from 'sweetalert2'
@@ -9,11 +9,11 @@ const SignUp = () => {
     const { userSignUp, userUpdate, LoginWithPopup, dark } = useContext(AuthContext)
 
     const googleProvider = new GoogleAuthProvider()
-
     const [error, setError] = useState(null)
     const [errorMsg, setErrorMsg] = useState(null)
 
     useTitle('Sign Up')
+    const navigate = useNavigate();
 
     // sweetalert2
 
@@ -74,6 +74,7 @@ const SignUp = () => {
 
                         setError(null)
                         setErrorMsg(null)
+                        navigate('/')
                         form.reset()
                     })
             })
@@ -98,6 +99,7 @@ const SignUp = () => {
                     icon: 'success',
                     title: 'Log In successfully'
                 })
+                navigate('/')
                 // console.log(result.user);
 
             })
