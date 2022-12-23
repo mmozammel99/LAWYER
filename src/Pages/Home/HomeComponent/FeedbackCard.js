@@ -11,7 +11,7 @@ const FeedbackCard = ({review}) => {
 	const reviewTime = moment(time).startOf('hour').fromNow();
     return (
         <div>
-            <div className={`${dark ? "bg-base-200" : "bg-primary"} shadow my-3 p-6 rounded shadow-md`}>
+            <div className={`${dark ? "bg-base-200" : "bg-primary"} shadow my-3 p-3 md:p-6 rounded shadow-md`}>
                                         <p>{feedback}</p>
                                         <div className="flex items-center mt-4 space-x-4">
                                             <img src={photoURL} alt="" className="w-12 h-12 bg-center bg-cover rounded-full bg-gray-500" />

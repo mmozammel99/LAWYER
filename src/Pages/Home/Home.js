@@ -28,7 +28,7 @@ const Home = () => {
     }, [])
     useTitle('Home')
     return (
-        <div className={`px-[5%] my-0 ${dark ? "bg-base-100" : "bg-gray-100"}  `}>
+        <div className={`px-[5%] my-0 ${dark ? "bg-base-100" : "bg-gray-100"} pb-3 `}>
             {/* Banner  */}
             <Banner />
 
@@ -40,7 +40,7 @@ const Home = () => {
                     <h2 className={`${!dark ? "text-base-100" : "text-gray-100"}`}> Legal Practices Area </h2>
                     -
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6 py-5'>
 
 
                     {(services?.length === 0) ?

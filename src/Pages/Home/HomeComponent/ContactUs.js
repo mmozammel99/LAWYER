@@ -4,7 +4,7 @@ import { AuthContext } from '../../../AuthContext/AuthProvider';
 const ContactUs = () => {
     const { dark } = useContext(AuthContext)
     return (
-        <div className={`${dark ? "bg-base-200" : "bg-primary"} shadow my-3`}>
+        <div className={`${dark ? "bg-base-200" : "bg-primary"} shadow`}>
 
             <div className={`space-y-2 text-center py-10  `} >
                 <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Don't hesitate to ask</h2>
